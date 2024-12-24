@@ -1,0 +1,12 @@
+{
+  "dependencies": {
+    "@nomicfoundation/hardhat-toolbox": "^5.0.0",
+    "dotenv": "^16.4.7",
+    "hardhat": "^2.22.17",
+    "xlsx": "^0.18.5",
+    "lodash": "^4.17.21"
+  },
+  "scripts": {
+    "scrap": "node scripts/main.js"
+  }
+}
