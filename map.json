@@ -27,5 +27,12 @@
   "mp": "MantaPacific",
   "aster": "AsterZk",
   "immu": "ImmutableZk",
-  "zk": "ZkSync"
+  "zk": "ZkSync",
+  "sonic": "Sonic",
+  "kava": "Kava",
+  "iota": "Iota",
+  "moonbeam": "Moonbeam",
+  "mantle": "Mantle",
+  "manta": "Manta",
+  "kaia": "Kaia"
 }

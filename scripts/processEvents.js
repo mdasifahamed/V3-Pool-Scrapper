@@ -1,92 +1,68 @@
-const { ethers, artifacts } = require("hardhat");
+const { ethers } = require("hardhat");
 const getProvider = require("./utils/provider");
 const getTokenInfo = require("./utils/getTokenInfo");
-const getPoolLiquidity = require("./utils/getPoolLiquidity");
+const getAdapter = require("./adapters/adapterFactory");
 const fs = require("fs");
-const FactoryArtifacts = artifacts.readArtifactSync(
-  "contracts/interfaces/IUniswapV3Factory.sol:IUniswapV3Factory"
-);
 
-async function processEvents(
-  provider_url,
-  factoryAddress,
-  range,
-  startingBlock,
-  filename
-) {
+async function processEvents(provider_url, factoryAddress, range, startingBlock, filename, defiName) {
   const provider = await getProvider(provider_url);
-  const factoryContract = new ethers.Contract(
-    factoryAddress,
-    FactoryArtifacts.abi,
-    provider
-  );
+  const adapter = getAdapter(defiName, provider);
 
-  const filter = factoryContract.filters.PoolCreated();
-  let poolInfoStore = [];
-  let endingBlock = startingBlock + 50000; // fixed block filtering range is 50000
-  for (let index = 0; index < range; index++) {
-    const events = await factoryContract.queryFilter(
-      filter,
-      startingBlock,
-      endingBlock
-    );
-    console.log(
-      `Number Of Events In The Block ${startingBlock} To ${endingBlock} is ${events.length}`
-    );
-    let eventsNumber = 0;
+  const factoryContract = new ethers.Contract(factoryAddress, adapter.artifacts.factoryArtifact.abi, provider);
+  const filter = adapter.getEventFilter(factoryContract);
+  const currentBlock = await provider.getBlockNumber();
+  const poolInfoStore = [];
+
+  const MAX_BLOCK_SPAN = 1000;
+
+  for (let i = 0; i < range; i++) {
+    if (startingBlock > currentBlock) {
+      console.log("Reached current latest block. Stopping.");
+      break;
+    }
+
+    const endBlock = Math.min(startingBlock + MAX_BLOCK_SPAN - 1, currentBlock);
+
     try {
+      const events = await factoryContract.queryFilter(filter, startingBlock, endBlock);
+      console.log(`Events in block ${startingBlock}-${endBlock}: ${events.length}`);
+
       for (const event of events) {
         try {
-          const token0Info = await getTokenInfo(event.args[0], provider_url);
-          const token1Info = await getTokenInfo(event.args[1], provider_url);
-          const poolLiquidity = await getPoolLiquidity(
-            event.args[4],
-            provider_url
-          );
+          const parsed = adapter.parseEvent(event);
+          const [token0Info, token1Info] = await Promise.all([
+            getTokenInfo(parsed.token0, provider_url),
+            getTokenInfo(parsed.token1, provider_url)
+          ]);
 
-          const poolInfo = {
-            poolAddress: event.args[4],
-            token0Add: event.args[0],
+          const reserves = await adapter.getReserves(parsed.poolAddress);
+
+          poolInfoStore.push({
+            poolAddress: parsed.poolAddress,
+            token0Add: parsed.token0,
             token0Name: token0Info.tokenName,
             token0Symbol: token0Info.tokenSymbol,
             token0Decimal: token0Info.tokenDecimals,
-            token1Add: event.args[1],
+            token1Add: parsed.token1,
             token1Name: token1Info.tokenName,
             token1Symbol: token1Info.tokenSymbol,
             token1Decimal: token1Info.tokenDecimals,
-            poolfee: parseInt(event.args[2]),
-            poolLiquidity: poolLiquidity.liquidity,
-            tickSpacing: parseInt(event.args[3]),
-          };
+            token0Reserve: reserves.reserve0,
+            token1Reserve: reserves.reserve1,
+          });
 
-          poolInfoStore.push(poolInfo);
-
-          fs.writeFile(
-            `${filename}.json`,
-            JSON.stringify(poolInfoStore),
-            (err) => {
-              if (err) {
-                console.error(err);
-              } else {
-                console.log(
-                  `Processing Events No ${eventsNumber} From ${startingBlock} To ${endingBlock}`
-                );
-              }
-            }
-          );
-        } catch (error) {
-          console.log(`Skipped event:`, event);
+          fs.writeFileSync(`${filename}.json`, JSON.stringify(poolInfoStore, null, 2));
+        } catch (err) {
+          console.warn("Event skipped due to error:", err.message);
         }
-        eventsNumber = eventsNumber + 1;
       }
-      startingBlock = endingBlock + 1;
-      endingBlock = startingBlock + 50000;
-
-      console.log("New Starting Block Number", startingBlock);
-      console.log("New Ending Block", endingBlock);
     } catch (error) {
-      console.error("An unexpected error occurred:", error.message);
+      console.warn(`Error in block range ${startingBlock}-${endBlock}: ${error.message}`);
     }
+
+    startingBlock = endBlock + 1;
   }
 }
+
 module.exports = processEvents;
+

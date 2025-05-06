@@ -1,5 +1,5 @@
 const lodash = require("lodash");
-const processEvents = require("./processEvents");
+const processEvents = require("../scripts/processEvents");
 const addresses = require("../ADRESS.json");
 const chainMap = require("../map.json");
 const rprUrl = require("../MainnetUrls.json");
@@ -9,6 +9,14 @@ const blockNumber = process.argv[4];
 const range = process.argv[5];
 
 async function main() {
+  // debugging
+  console.table({
+    chainName,
+    defiName,
+    blockNumber,
+    range
+  })
+
   const network = chainMap[chainName.toLocaleLowerCase()];
   if (!network) {
     throw new Error("Invalid Chain Name");
@@ -33,12 +41,15 @@ async function main() {
   const fileName = `${lodash.startCase(
     defiName
   )}-${network}-${blockNumber}-${range}`;
+
+
   await processEvents(
     provider_url,
     factoryAddress,
     parseInt(range),
     parseInt(blockNumber),
-    fileName
+    fileName,
+    defiName
   );
 }
 
