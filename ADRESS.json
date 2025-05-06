@@ -88,5 +88,66 @@
     "AsterZk": "0x56c2162254b0E4417288786eE402c2B41d4e181e",
 
     "ImmutableZk": "0x56c2162254b0E4417288786eE402c2B41d4e181e"
+  },
+  "SpookySwap": {
+    "Sonic": "0x3D91B700252e0E3eE7805d12e048a988Ab69C8ad"
+  },
+  "Swapbased": {
+    "Base": "0xb5620F90e803C7F957A9EF351B8DB3C746021BEa"
+  },
+  "HorizonDex": {
+    "Linea": "0x9Fe607e5dCd0Ea318dBB4D8a7B04fa553d6cB2c5",
+    "Base": "0x07AceD5690e09935b1c0e6E88B772d9440F64718"
+  },
+  "AgniFinance" : {
+    "Mantle": "0x25780dc8Fc3cfBD75F33bFDAB65e969b603b2035"
+  },
+  "Butter" : {
+    "Mantle" : "0xEECa0a86431A7B42ca2Ee5F479832c3D4a4c2644"
+  },
+  "Ubeswap" : {
+    "Celo": "0x67FEa58D5a5a4162cED847E13c2c81c73bf8aeC4"
+  },
+  "Wagmi" : {
+    "Ethereum":"0xB9a14EE1cd3417f3AcC988F61650895151abde24",
+    "BSC": "0xE3Dc1A5a7aB81F1cC1895FA55034725c24a5BD0e",
+    "Avalanche": "0x08d6E1aE0f91423dDBD16f083ca39ccDd1D79cE8",
+    "Polygon": "0x8bb1Be7acD806BF6C9766486dC4c21284a472BaC",
+    "Fantom": "0xaf20f5f19698f1D19351028cd7103B63D30DE7d7",
+    "Sonic": "0xaf20f5f19698f1D19351028cd7103B63D30DE7d7",
+    "Artbitrum": "0x7301350CC76D669ea384e77aF38a70C61661CA48",
+    "Optimism": "0xC49c177736107fD8351ed6564136B9ADbE5B1eC3",
+    "Kava": "0x0e0Ce4D450c705F8a0B6Dd9d5123e3df2787D16B",
+    "Base": "0x576A1301B42942537d38FB147895fE83fB418fD4",
+    "Iota": "0x01Bd510B2eA106917e711f9a05a42fC162bee2Ac"
+  },
+  "Beamswap" : {
+    "Moonbeam": "0xD118fa707147c54387B738F54838Ea5dD4196E71"
+  },
+  "DackieSwap" : {
+    "Base": "0x3D237AC6D2f425D2E890Cc99198818cc1FA48870",
+    "Optimism": "0xc2BC7A73613B9bD5F373FE10B55C59a69F4D617B"
+  },
+  "Firefly" : {
+    "Manta" : "0x8666EF9DC0cA5336147f1B11f2C4fC2ecA809B95"
+  }, 
+  "Slipstream" : {
+    "Base" : "0x420DD381b31aEf6683db6B902084cB0FFECe40Da"
+  },
+  "Syncswap" : {
+    "ZkSync" : "0xf2DAd89f2788a8CD54625C60b55cD3d2D0ACa7Cb"
+  },
+  "Maverick" : {
+    "Artbitrum": "0x0A7e848Aca42d879EF06507Fca0E7b33A0a63c1e",
+    "Base": "0x0A7e848Aca42d879EF06507Fca0E7b33A0a63c1e",
+    "BSC": "0x0A7e848Aca42d879EF06507Fca0E7b33A0a63c1e",
+    "Ethereum": "0x0A7e848Aca42d879EF06507Fca0E7b33A0a63c1e",
+    "ZkSync": "0x0A7e848Aca42d879EF06507Fca0E7b33A0a63c1e"
+  },
+  "Klayswap": {
+    "Kaia": "0x0Af25138860689F967f142F4B06c29AfC84AE910"
+  },
+  "Traderjoe": {
+    "Avalanche": "0xb43120c4745967fa9b93E79C149E66B0f2D6Fe0c"
   }
 }

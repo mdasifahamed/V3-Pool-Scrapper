@@ -1,0 +1,54 @@
+[
+  {
+    "poolAddress": "0x80115c708E12eDd42E504c1cD52Aea96C547c05c",
+    "token0Add": "0x3355df6D4c9C3035724Fd0e3914dE96A5a83aaf4",
+    "token0Name": "Bridged USDC (zkSync)",
+    "token0Symbol": "USDC.e",
+    "token0Decimal": 6,
+    "token1Add": "0x5AEa5775959fBC2557Cc8789bC1bf90A239D9a91",
+    "token1Name": "Wrapped Ether",
+    "token1Symbol": "WETH",
+    "token1Decimal": 18,
+    "token0Reserve": "0.00000237467040933",
+    "token1Reserve": "1337.622122706848271777"
+  },
+  {
+    "poolAddress": "0x6155d68725320935D4F466d0B17E1C52C57bcCAF",
+    "token0Add": "0x1f559e1044D3c48871754592B7FD5602B66F7003",
+    "token0Name": "zKoi",
+    "token0Symbol": "ZKOI",
+    "token0Decimal": 18,
+    "token1Add": "0x5AEa5775959fBC2557Cc8789bC1bf90A239D9a91",
+    "token1Name": "Wrapped Ether",
+    "token1Symbol": "WETH",
+    "token1Decimal": 18,
+    "token0Reserve": "809.26459774767464025",
+    "token1Reserve": "0.005397981782526659"
+  },
+  {
+    "poolAddress": "0xf6F497d1f8Ed9A80BD76b577F0bb8B72A0F616f8",
+    "token0Add": "0x3355df6D4c9C3035724Fd0e3914dE96A5a83aaf4",
+    "token0Name": "Bridged USDC (zkSync)",
+    "token0Symbol": "USDC.e",
+    "token0Decimal": 6,
+    "token1Add": "0xEd0994232328B470d44a88485B430b8bA965D434",
+    "token1Name": "BUIDLBux For Testing",
+    "token1Symbol": "BUIDL TEST",
+    "token1Decimal": 2,
+    "token0Reserve": "0.0",
+    "token1Reserve": "0.0"
+  },
+  {
+    "poolAddress": "0x99395aD2788aD3a16ac0dB1cDAC3bAE1159EE887",
+    "token0Add": "0x5AEa5775959fBC2557Cc8789bC1bf90A239D9a91",
+    "token0Name": "Wrapped Ether",
+    "token0Symbol": "WETH",
+    "token0Decimal": 18,
+    "token1Add": "0xbFB4b5616044Eded03e5b1AD75141f0D9Cb1499b",
+    "token1Name": "zkDoge",
+    "token1Symbol": "ZKDOGE",
+    "token1Decimal": 18,
+    "token0Reserve": "0.36036941472489214",
+    "token1Reserve": "158614572.855342313629580917"
+  }
+]

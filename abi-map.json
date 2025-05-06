@@ -1,0 +1,26 @@
+{
+    "syncswap": {
+        "address": "0xbB05918E9B4bA9Fe2c8384d223f0844867909Ffb",
+        "pathToAbi": "contracts/interfaces/syncswap/ISyncSwapFactory.sol:ISyncSwapFactory",
+        "poolArtifact": "contracts/interfaces/syncswap/ISyncswapPool.sol:ISyncswapPool",
+        "eventName": "PoolCreated"
+    },
+    "maverick": {
+        "address": "0x8C1D5F4A2E3B7F6C9D1A0E5B2F4C3E8B7F6C9D1A",
+        "pathToAbi": "contracts/interfaces/maverick/IMaverickV2Factory.sol:IMaverickV2Factory",
+        "poolArtifact": "contracts/interfaces/maverick/IMaverickV2Pool.sol:IMaverickV2Pool",
+        "eventName": "PoolCreated"
+    },
+    "klayswap": {
+        "address": "0x0Af25138860689F967f142F4B06c29AfC84AE910",
+        "pathToAbi": "contracts/interfaces/klayswap/IKlayswapV3Factory.sol:IKlayswapV3Factory",
+        "poolArtifact": "contracts/interfaces/klayswap/IKlayswapV3Pool.sol:IKlayswapV3Pool",
+        "eventName": "PoolCreated"
+    },
+    "traderjoe": {
+        "address": "0xb43120c4745967fa9b93E79C149E66B0f2D6Fe0c",
+        "pathToAbi": "contracts/interfaces/traderJoe/ILBFactory.sol:ILBFactory",
+        "poolArtifact": "contracts/interfaces/traderJoe/ILBPair.sol:ILBPair",
+        "eventName": "LBPairCreated"
+    }
+}
