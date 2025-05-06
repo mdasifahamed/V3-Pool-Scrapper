@@ -1,6 +1,0 @@
-                                 start      end
-wagmi(iota)=                     143828     6865681  - start from again 793884
-beamswap(moonbeam) =             3579833    10702972 - start from again 7279870
-
-
-syncswap = 9775
