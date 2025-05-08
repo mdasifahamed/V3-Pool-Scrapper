@@ -1,34 +1,49 @@
-const {ethers} = require('hardhat');
+const { ethers } = require('hardhat');
 const BaseAdapter = require('./BaseAdapter');
 
 class DfxAdapter extends BaseAdapter {
     getEventFilter(contract) {
-        console.log(contract.filters.NewCurve())
         return contract.filters.NewCurve();
     }
 
-    parseEvent(event) {
-        console.log(event)
+    async parseEvent(event) {
+        const tokens = await this.getTokens(event.args[2]);
         return {
-            poolAddress: event.args[2]
+            poolAddress: event.args[2],
+            token0: tokens.token0,
+            token1: tokens.token1
         };
     }
 
     async getReserves(poolAddress) {
-        // const poolContract = new ethers.Contract(
-        //     poolAddress,
-        //     this.artifacts.poolArtifact.abi,
-        //     this.provider
-        // );
-
-        // const reserve = await poolContract.getReserves();
-        // const reserve0 = reserve[0];
-        // const reserve1 = reserve[1];
+        const poolContract = new ethers.Contract(
+            poolAddress,
+            this.artifacts.poolArtifact.abi,
+            this.provider
+        );
 
         return {
-            reserve0: 0,
-            reserve1: 0
+            reverse0: '0',
+            reverse1: '0',
         };
+    }
+
+    async getTokens(poolAddress) {
+        const poolContract = new ethers.Contract(
+            poolAddress,
+            this.artifacts.poolArtifact.abi,
+            this.provider
+        );
+
+        const [token0, token1] = await Promise.all([
+            poolContract.reserves(0),
+            poolContract.reserves(1)
+        ]);
+
+        return {
+            token0,
+            token1
+        }
     }
 }
 

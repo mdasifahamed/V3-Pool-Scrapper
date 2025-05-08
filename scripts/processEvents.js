@@ -46,7 +46,7 @@ async function processEvents(
 
       for (const event of events) {
         try {
-          const parsed = adapter.parseEvent(event);
+          const parsed = await adapter.parseEvent(event);
           const [token0Info, token1Info] = await Promise.all([
             getTokenInfo(parsed.token0, provider_url),
             getTokenInfo(parsed.token1, provider_url),
