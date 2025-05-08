@@ -141,13 +141,28 @@
     "Artbitrum": "0x0A7e848Aca42d879EF06507Fca0E7b33A0a63c1e",
     "Base": "0x0A7e848Aca42d879EF06507Fca0E7b33A0a63c1e",
     "BSC": "0x0A7e848Aca42d879EF06507Fca0E7b33A0a63c1e",
-    "Ethereum": "0x0A7e848Aca42d879EF06507Fca0E7b33A0a63c1e",
-    "ZkSync": "0x0A7e848Aca42d879EF06507Fca0E7b33A0a63c1e"
+    "Ethereum": "0x0A7e848Aca42d879EF06507Fca0E7b33A0a63c1e"
   },
   "Klayswap": {
     "Kaia": "0x0Af25138860689F967f142F4B06c29AfC84AE910"
   },
   "Traderjoe": {
     "Avalanche": "0xb43120c4745967fa9b93E79C149E66B0f2D6Fe0c"
+  },
+  "Unifi": {
+    "Ethereum": "0x08e7974CacF66C5a92a37c221A15D3c30C7d97e0",
+    "Avalanche": "0x839547067bc885db205F5fA42dcFeEcDFf5A8530",
+    "BSC": "0xA5Ba037Ec16c45f8ae09e013C1849554C01385f5",
+    "Polygon": "0x4FEE52912f81B78C3CdcB723728926ED6a893D27"
+  },
+  "Saddle": {
+    "BSC" : "0x191601af39927ba165bf89b238bfbf615bad205b",
+    "Optimism": "0x4E1484607760118ebE2Ab07C0c71f1B4D9671e01",
+    "Artbitrum": "0x38262c17a06A6B3588d3E5b70dfa768C06bf4ef1"
+  },
+  "Dfx": {
+    "Ethereum": "0xCe2b8E0c196b7F9297A9c168Dfe1A97768297835",
+    "Arbitrum": "0xDe9c71503648C03F529305e03D259f2eBa9c8fDe",
+    "Polygon": "0xE5ce84Bba5B27cCfb7D92CB3e1426d8A986854dd"
   }
 }
