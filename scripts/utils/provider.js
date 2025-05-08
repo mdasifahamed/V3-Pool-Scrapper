@@ -11,7 +11,7 @@ async function getProvider(rpc_url) {
     return provider;
   } catch (error) {
     console.log("Error at : provider.js");
-    consolg.log(error);
+    console.log(error);
   }
 }
 

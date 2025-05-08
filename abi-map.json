@@ -22,5 +22,19 @@
         "pathToAbi": "contracts/interfaces/traderJoe/ILBFactory.sol:ILBFactory",
         "poolArtifact": "contracts/interfaces/traderJoe/ILBPair.sol:ILBPair",
         "eventName": "LBPairCreated"
+    },
+    "unifi" : {
+        "address": "0x08e7974CacF66C5a92a37c221A15D3c30C7d97e0",
+        "pathToAbi": "contracts/interfaces/unifi/IUnifiFactory.sol:IUnifiFactory",
+        "poolArtifact": "contracts/interfaces/unifi/IUnifiPair.sol:IUnifiPair",
+        "eventName": "PairCreated"
+    },
+    "saddle": {
+        "pathToAbi": "contracts/interfaces/saddle/IPoolRegistry.sol:IPoolRegistry"
+    },
+    "dfx": {
+        "pathToAbi": "contracts/interfaces/curve/ICurveFactory.sol:ICurveFactory",
+        "poolArtifact": "contracts/interfaces/curve/ICurvePool.sol:ICurvePool",
+        "eventName": "NewCurve"
     }
 }

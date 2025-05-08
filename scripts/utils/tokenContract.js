@@ -21,7 +21,7 @@ async function getTokenContract(contract_address, provider_url) {
     return { tokenContract };
   } catch (error) {
     console.log("Error at : tokenContract.js");
-    consolg.log(error);
+    console.log(error);
   }
 }
 

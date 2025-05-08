@@ -3,7 +3,9 @@ const SyncSwapAdapter = require("./SyncSwapAdapter");
 const MaverickAdapter = require("./MaverickAdapter");
 const KlaySwapAdapter = require("./KlayswapAdapter");
 const TraderJoeAdapter = require("./TraderJoeAdapter");
+const UnifiAdapter = require("./UnifiAdapter");
 const artifactMap = require("../../abi-map.json");
+const DfxAdapter = require("./DfxAdapter");
 
 function getAdapter(defiName, provider) {
     const key = defiName.toLowerCase();
@@ -19,7 +21,7 @@ function getAdapter(defiName, provider) {
     };
 
     if (key === "syncswap") {
-        return new SyncSwapAdapter(provider, artifactsBundle); // replace with new SyncSwapAdapter
+        return new SyncSwapAdapter(provider, artifactsBundle);
     }
 
     if (key === "maverick") {
@@ -32,6 +34,14 @@ function getAdapter(defiName, provider) {
 
     if (key === "traderjoe") {
         return new TraderJoeAdapter(provider, artifactsBundle);
+    }
+
+    if( key === "unifi") {
+        return new UnifiAdapter(provider, artifactsBundle);
+    }
+
+    if( key === "dfx") {
+        return new DfxAdapter(provider, artifactsBundle);
     }
 
     throw new Error(`No adapter defined for ${defiName}`);
